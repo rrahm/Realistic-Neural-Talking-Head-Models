@@ -32,7 +32,7 @@ G.finetuning_init()
 
 """Main"""
 print('PRESS Q TO EXIT')
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('webcam_example.mp4')
 
 with torch.no_grad():
     while True:
