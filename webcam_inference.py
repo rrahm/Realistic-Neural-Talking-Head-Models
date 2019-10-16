@@ -33,14 +33,17 @@ G.finetuning_init()
 """Main"""
 print('PRESS Q TO EXIT')
 cap = cv2.VideoCapture('webcam_example.mp4')
+ret, frame = cap.read()
 
-height,width,layers=cap.shape
+height,width,layers=frame.shape
 
 video=cv2.VideoWriter('video.avi',-1,1,(width,height))
 video2=cv2.VideoWriter('video2.avi',-1,1,(width,height))
 
 with torch.no_grad():
     while True:
+
+    	
         x, g_y = generate_landmarks(cap=cap, device=device, pad=50)
 
         g_y = g_y.unsqueeze(0)
