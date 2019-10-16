@@ -10,6 +10,7 @@ from webcam_demo.webcam_extraction_conversion import *
 
 """Init"""
 
+
 #Paths
 path_to_model_weights = '/content/drive/My Drive/model_weights.tar'
 path_to_embedding = 'e_hat_video.tar'
@@ -44,7 +45,7 @@ video2=cv2.VideoWriter('video2.avi',-1,1,(width,height))
 with torch.no_grad():
     while True:
 
-    	
+        
         x, g_y = generate_landmarks(cap=cap, device=device, pad=50)
 
         g_y = g_y.unsqueeze(0)
