@@ -91,7 +91,6 @@ with torch.no_grad():
         if cv2.waitKey(1) == ord('q'):
             break
 cap.release()
-video.release()
-video2.release()
+
 cv2.destroyAllWindows()
 
