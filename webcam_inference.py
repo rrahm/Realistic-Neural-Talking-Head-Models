@@ -30,6 +30,7 @@ G.to(device)
 G.finetuning_init()
 
 
+
 """Main"""
 print('PRESS Q TO EXIT')
 cap = cv2.VideoCapture('webcam_example.mp4')
