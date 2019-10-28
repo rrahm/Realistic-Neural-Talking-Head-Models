@@ -75,9 +75,9 @@ with torch.no_grad():
         #plt.show()
 
         
-        #cv2.imshow('fake', cv2.cvtColor(out1, cv2.COLOR_BGR2RGB))
-        #cv2.imshow('me', cv2.cvtColor(out2, cv2.COLOR_BGR2RGB))
-        #cv2.imshow('ladnmark', cv2.cvtColor(out3, cv2.COLOR_BGR2RGB))
+        cv2.imshow('fake', cv2.cvtColor(out1, cv2.COLOR_BGR2RGB))
+        cv2.imshow('me', cv2.cvtColor(out2, cv2.COLOR_BGR2RGB))
+        cv2.imshow('ladnmark', cv2.cvtColor(out3, cv2.COLOR_BGR2RGB))
         
         if cv2.waitKey(1) == ord('q'):
             break
