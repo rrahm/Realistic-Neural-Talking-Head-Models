@@ -10,9 +10,8 @@ from webcam_demo.webcam_extraction_conversion import *
 
 """Init"""
 
-
 #Paths
-path_to_model_weights = '/content/drive/My Drive/model_weights.tar'
+path_to_model_weights = '/content/drive/My\ Drive/model_weights.tar'
 path_to_embedding = 'e_hat_video.tar'
 
 device = torch.device("cuda:0")
@@ -31,21 +30,12 @@ G.to(device)
 G.finetuning_init()
 
 
-
 """Main"""
 print('PRESS Q TO EXIT')
-cap = cv2.VideoCapture('webcam_example.mp4')
-ret, frame = cap.read()
-
-height,width,layers=frame.shape
-
-video=cv2.VideoWriter('video.avi',-1,1,(width,height))
-video2=cv2.VideoWriter('video2.avi',-1,1,(width,height))
+cap = cv2.VideoCapture(0)
 
 with torch.no_grad():
     while True:
-
-        
         x, g_y = generate_landmarks(cap=cap, device=device, pad=50)
 
         g_y = g_y.unsqueeze(0)
@@ -82,16 +72,13 @@ with torch.no_grad():
         out3 = out3.to(cpu).numpy()
         #plt.imshow(out3)
         #plt.show()
-        
-        cv2.imshow('fake', cv2.cvtColor(out1, cv2.COLOR_BGR2RGB))
-        cv2.imshow('me', cv2.cvtColor(out2, cv2.COLOR_BGR2RGB))
-        cv2.imshow('ladnmark', cv2.cvtColor(out3, cv2.COLOR_BGR2RGB))
-        video.write(out1)
-        video2.write(out2)
 
+        
+        #cv2.imshow('fake', cv2.cvtColor(out1, cv2.COLOR_BGR2RGB))
+        #cv2.imshow('me', cv2.cvtColor(out2, cv2.COLOR_BGR2RGB))
+        #cv2.imshow('ladnmark', cv2.cvtColor(out3, cv2.COLOR_BGR2RGB))
+        
         if cv2.waitKey(1) == ord('q'):
             break
 cap.release()
-
 cv2.destroyAllWindows()
-
