@@ -51,7 +51,7 @@ with torch.no_grad():
         x_hat = G(g_y, e_hat)
 
         plt.clf()
-        out1 = x_hat.transpose(1,3)[0]/255
+        out1 = x_hat.transpose(1,3)[0]
         #for img_no in range(1,x_hat.shape[0]):
         #    out1 = torch.cat((out1, x_hat.transpose(1,3)[img_no]), dim = 1)
         out1 = out1.to(cpu).numpy()
@@ -74,7 +74,6 @@ with torch.no_grad():
         #plt.imshow(out3)
         #plt.show()
 
-        out1 /= 255.0
         cv2.imwrite('fake.jpg', cv2.cvtColor(out1, cv2.COLOR_BGR2RGB))
         cv2.imwrite('me.jpg', cv2.cvtColor(out2, cv2.COLOR_BGR2RGB))
         cv2.imwrite('landmark.jpg', cv2.cvtColor(out3, cv2.COLOR_BGR2RGB))
