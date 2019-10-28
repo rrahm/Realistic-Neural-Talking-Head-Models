@@ -11,7 +11,7 @@ from webcam_demo.webcam_extraction_conversion import *
 """Init"""
 
 #Paths
-path_to_model_weights = '/content/drive/My\ Drive/model_weights.tar'
+path_to_model_weights = '/content/drive/My Drive/model_weights.tar'
 path_to_embedding = 'e_hat_video.tar'
 
 device = torch.device("cuda:0")
