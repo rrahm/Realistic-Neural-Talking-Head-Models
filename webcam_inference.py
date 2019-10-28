@@ -74,7 +74,7 @@ with torch.no_grad():
         #plt.imshow(out3)
         #plt.show()
 
-        
+        out1 /= 255.0
         cv2.imwrite('fake.jpg', cv2.cvtColor(out1, cv2.COLOR_BGR2RGB))
         cv2.imwrite('me.jpg', cv2.cvtColor(out2, cv2.COLOR_BGR2RGB))
         cv2.imwrite('landmark.jpg', cv2.cvtColor(out3, cv2.COLOR_BGR2RGB))
