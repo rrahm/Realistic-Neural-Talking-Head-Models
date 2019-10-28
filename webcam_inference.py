@@ -11,7 +11,7 @@ from webcam_demo.webcam_extraction_conversion import *
 """Init"""
 
 #Paths
-path_to_model_weights = '/content/drive/My\ Drive/model_weights.tar'
+path_to_model_weights = '/content/drive/My Drive/model_weights.tar'
 path_to_embedding = 'e_hat_video.tar'
 
 device = torch.device("cuda:0")
@@ -32,7 +32,8 @@ G.finetuning_init()
 
 """Main"""
 print('PRESS Q TO EXIT')
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('webcam_example.mp4')
+
 
 with torch.no_grad():
     while True:
